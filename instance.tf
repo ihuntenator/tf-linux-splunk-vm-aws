@@ -15,7 +15,7 @@ resource "aws_instance" "linux_instance" {
     Name = var.instanceName
   }
   provisioner "file" {
-    source      = "~/projects/octopus/tf-linux-vm-aws/installTentacle.sh"
+    source      = "~/projects/terraform/tf-linux-vm-aws/installTentacle.sh"
     destination = "/tmp/installTentacle.sh"
   }
   provisioner "remote-exec" {
