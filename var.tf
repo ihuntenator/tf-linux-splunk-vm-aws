@@ -1,4 +1,3 @@
-# var.tf
 variable "access_key" { }
 variable "secret_key" { }
 variable "keyName" { }
@@ -20,11 +19,10 @@ variable "securityGroups" {
    default = [ "sg-ae5329e6" ]
 }
 variable "instanceName" {
-   default = "linuxttest"
+   default = "splunk"
 }
 variable "amis" {
    default = {
      "ap-southeast-2" = "ami-085265c078d86c75b"
    }
 }
-# end of var.tf

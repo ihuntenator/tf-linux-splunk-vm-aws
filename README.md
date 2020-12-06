@@ -1,6 +1,6 @@
 # Terraform deploy for AWS linux instance with splunk
 
-Create a AWS instance with splunk enterprise and octopus tentacle.
+Create a AWS instance with splunk enterprise.
 
 ## the tfvars file
 
@@ -19,8 +19,8 @@ keyPath = "/path/to/key"
 ```
 terraform init
 terraform validate
-terraform plan -var-file=dev.tfvars -out tf-linux-splunk-vm-aws.out
-terraform apply "tf-linux-splunk-vm-aws.out"
+terraform plan -var-file=dev.tfvars -out tf.out
+terraform apply "tf.out"
 ```
 
 When finished:
