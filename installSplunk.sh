@@ -7,6 +7,7 @@ ${wget} -O splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm 'https://www.splunk.
 
 sudo yum install -y splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm
 
+${SPLUNK_HOME}/bin/splunk edit user admin -password NEWPASSWORD -auth admin:changeme
 ${SPLUNK_HOME}/bin/splunk start --accept-license --answer-yes --auto-ports --no-prompt
 ${SPLUNK_HOME}/bin/splunk enable boot-start -user splunk
 
