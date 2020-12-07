@@ -7,7 +7,9 @@ ${wget} -O splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm 'https://www.splunk.
 
 yum install -y splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm
 
-${SPLUNK_HOME}/bin/splunk enable boot-start --answer-yes --no-prompt --accept-license --seed-passwd WhatIsThis
+${SPLUNK_HOME}/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt -user splunk
+
+cp /tmp/user-seed.conf /opt/splunk/etc/system/local/user-seed.conf
 
 ${SPLUNK_HOME}/bin/splunk start
 

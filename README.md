@@ -27,3 +27,9 @@ When finished:
 ```
 terraform destroy -var-file=dev.tfvars
 ```
+
+## Splunk Enterprise
+
+Available at: http://<public-DNS-FQDN>:8000
+
+Login as user admin
