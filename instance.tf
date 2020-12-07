@@ -7,12 +7,18 @@ resource "aws_instance" "splunk" {
   
   tags = {
     Name = var.instanceName
-
   }
   volume_tags = {
     Name = var.instanceName
-
   }
+
+  connection {
+    type        = "ssh"
+    user        = "centos"
+    private_key = file(var.keyPath)
+    host        = self.public_ip
+  }
+
   provisioner "file" {
     source      = "~/projects/terraform/tf-linux-splunk-vm-aws/files"
     destination = "/tmp"
@@ -23,13 +29,5 @@ resource "aws_instance" "splunk" {
       "chmod +x /tmp/files/installSplunk.sh",
       "sudo /tmp/files/installSplunk.sh",
     ]
-  }
-  
-  connection {
-    type        = "ssh"
-    user        = "centos"
-    password    = ""
-    private_key = file(var.keyPath)
-    host        = self.public_ip
   }
 } 
