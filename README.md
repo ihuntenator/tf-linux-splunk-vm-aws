@@ -44,6 +44,10 @@ or use:
 ssh centos@$(echo "aws_instance.splunk.public_ip" | terraform console) -i ~/projects/access/ihuntenator-aws.pem
 ```
 
+## terraform graph
+
+![alt text](https://github.com/huntenator/tf-linux-splunk-vm-aws/blob/master/images/image.jpg?raw=true)
+
 ## References
 
  * https://docs.splunk.com/Documentation/Splunk/8.1.0/Security/SecureSplunkWebusingasignedcertificate
