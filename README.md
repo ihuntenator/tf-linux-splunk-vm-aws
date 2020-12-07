@@ -30,24 +30,8 @@ terraform destroy -var-file=dev.tfvars
 
 ## Splunk Enterprise
 
-Available at: http://<public-DNS-FQDN>:8000
+Available at: https://public-DNS-FQDN:8000
 
-Login as user admin
+Login as user admin with password if you know it.
 
-### Set to HTTPS
-
-```
-cp $SPLUNK_HOME/etc/system/default $SPLUNK_HOME/etc/system/local/default
-```
-
-Set as:
-```
-[settings]
-httpport = 8000
-enableSplunkWebSSL = true
-```
-
-Restart Splunk
-
-## References
 
