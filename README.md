@@ -34,4 +34,6 @@ Available at: https://public-DNS-FQDN:8000
 
 Login as user admin with password if you know it.
 
+## References
 
+ * https://docs.splunk.com/Documentation/Splunk/8.1.0/Security/SecureSplunkWebusingasignedcertificate
