@@ -34,6 +34,16 @@ Available at: https://public-DNS-FQDN:8000
 
 Login as user admin with password if you know it.
 
+## SSH to instance
+
+```
+ssh centos@$(terraform show -json | jq -r '.values.outputs.aws_instance.value.public_ip')  -i ~/projects/access/ihuntenator-aws.pem
+```
+or use:
+```
+ssh centos@$(echo "aws_instance.splunk.public_ip" | terraform console) -i ~/projects/access/ihuntenator-aws.pem
+```
+
 ## References
 
  * https://docs.splunk.com/Documentation/Splunk/8.1.0/Security/SecureSplunkWebusingasignedcertificate
