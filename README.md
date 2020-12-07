@@ -30,6 +30,11 @@ terraform destroy -var-file=dev.tfvars
 
 ## Splunk Enterprise
 
+To create the hash in user-seed.conf use:
+```
+splunk hash password
+```
+
 Available at: https://public-DNS-FQDN:8000
 
 Login as user admin with password if you know it.
