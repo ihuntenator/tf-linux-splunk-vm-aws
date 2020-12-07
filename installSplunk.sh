@@ -9,9 +9,18 @@ yum install -y splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm
 
 ${SPLUNK_HOME}/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt -user splunk
 
-cp /tmp/files/user-seed.conf ${SPLUNK_HOME}/etc/system/local/user-seed.conf
-cp /tmp/files/web.conf ${SPLUNK_HOME}/etc/system/local/web.conf
-chown splunk:splunk ${SPLUNK_HOME}/etc/system/local/web.confown
+cat << EOF > ${SPLUNK_HOME}/etc/system/local/web.conf
+[settings]
+enableSplunkWebSSL = true
+EOF
+
+chown splunk:splunk ${SPLUNK_HOME}/etc/system/local/web.conf
+
+cat << 'EOF' > ${SPLUNK_HOME}/etc/system/local/user-seed.conf
+[user_info]
+USERNAME = admin
+HASHED_PASSWORD = $6$BN1nok8HIHl82R8R$NRsdcw.CHZJWyYNlXmDlnKz1JZRiVEg5Yo8uTwIT8qFcgWyUCoTba9iNfv/j6QCo4YSIq7h2UiKNKotGxx2uo1
+EOF
 
 ${SPLUNK_HOME}/bin/splunk start
 

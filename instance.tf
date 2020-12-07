@@ -20,14 +20,14 @@ resource "aws_instance" "splunk" {
   }
 
   provisioner "file" {
-    source      = "~/projects/terraform/tf-linux-splunk-vm-aws/files"
-    destination = "/tmp"
+    source      = "~/projects/terraform/tf-linux-splunk-vm-aws/installSplunk.sh"
+    destination = "/tmp/installSplunk.sh"
 
   }
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/files/installSplunk.sh",
-      "sudo /tmp/files/installSplunk.sh",
+      "chmod +x /tmp/installSplunk.sh",
+      "sudo /tmp/installSplunk.sh",
     ]
   }
 } 
