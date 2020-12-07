@@ -46,6 +46,12 @@ ssh centos@$(echo "aws_instance.splunk.public_ip" | terraform console) -i ~/proj
 
 ## terraform graph
 
+Copy the output of the following into: http://dreampuf.github.io
+
+```
+terraform graph
+```
+
 ![alt text](https://github.com/ihuntenator/tf-linux-splunk-vm-aws/blob/master/images/tf-linux-splunk-vm-aw-graph.png?raw=true)
 
 ## References
