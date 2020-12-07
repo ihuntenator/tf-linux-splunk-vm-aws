@@ -33,3 +33,21 @@ terraform destroy -var-file=dev.tfvars
 Available at: http://<public-DNS-FQDN>:8000
 
 Login as user admin
+
+### Set to HTTPS
+
+```
+cp $SPLUNK_HOME/etc/system/default $SPLUNK_HOME/etc/system/local/default
+```
+
+Set as:
+```
+[settings]
+httpport = 8000
+enableSplunkWebSSL = true
+```
+
+Restart Splunk
+
+## References
+

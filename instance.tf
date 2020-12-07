@@ -7,24 +7,21 @@ resource "aws_instance" "splunk" {
   
   tags = {
     Name = var.instanceName
+
   }
   volume_tags = {
     Name = var.instanceName
+
   }
   provisioner "file" {
-    source      = "~/projects/terraform/tf-linux-splunk-vm-aws/installSplunk.sh"
-    destination = "/tmp/installSplunk.sh"
-  }
+    source      = "~/projects/terraform/tf-linux-splunk-vm-aws/files"
+    destination = "/tmp"
 
-  provisioner "file" {
-    source      = "~/projects/terraform/tf-linux-splunk-vm-aws/user-seed.conf"
-    destination = "/tmp/user-seed.conf"
   }
-
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/installSplunk.sh",
-      "sudo /tmp/installSplunk.sh",
+      "chmod +x /tmp/files/installSplunk.sh",
+      "sudo /tmp/files/installSplunk.sh",
     ]
   }
   
