@@ -1,29 +1,34 @@
-variable "access_key" { }
-variable "secret_key" { }
-variable "keyName" { }
-variable "keyPath" { }
+variable "access_key" {}
+variable "secret_key" {}
+variable "keyName" {}
+variable "keyPath" {}
+
+variable "env_name" {
+  type    = string
+  default = "dev"
+}
 
 variable "region" {
-   default = "ap-southeast-2"
+  default = "ap-southeast-2"
 }
 variable "availabilityZone" {
-   default = "ap-southeast-2a"
+  default = "ap-southeast-2a"
 }
 variable "instanceType" {
-   default = "t2.micro"
+  default = "t2.micro"
 }
 variable "subnet" {
-   default = "subnet-74539012"
+  default = "subnet-74539012"
 }
 variable "securityGroups" {
-   type = list
-   default = [ "sg-ae5329e6" ]
+  type    = list
+  default = ["sg-ae5329e6"]
 }
 variable "instanceName" {
-   default = "splunk"
+  default = "splunk"
 }
 variable "amis" {
-   default = {
-     "ap-southeast-2" = "ami-085265c078d86c75b"
-   }
+  default = {
+    "ap-southeast-2" = "ami-085265c078d86c75b"
+  }
 }

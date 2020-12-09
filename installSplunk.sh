@@ -12,6 +12,8 @@ ${SPLUNK_HOME}/bin/splunk enable boot-start --accept-license --answer-yes --no-p
 cat << EOF > ${SPLUNK_HOME}/etc/system/local/web.conf
 [settings]
 enableSplunkWebSSL = true
+#privKeyPath = etc/auth/mycerts/mySplunkWebPrivateKey.key
+#serverCert = etc/auth/mycerts/mySplunkWebCertificate.pem
 EOF
 
 chown splunk:splunk ${SPLUNK_HOME}/etc/system/local/web.conf
@@ -21,6 +23,7 @@ cat << 'EOF' > ${SPLUNK_HOME}/etc/system/local/user-seed.conf
 USERNAME = admin
 HASHED_PASSWORD = $6$BN1nok8HIHl82R8R$NRsdcw.CHZJWyYNlXmDlnKz1JZRiVEg5Yo8uTwIT8qFcgWyUCoTba9iNfv/j6QCo4YSIq7h2UiKNKotGxx2uo1
 EOF
+
 
 ${SPLUNK_HOME}/bin/splunk start
 
