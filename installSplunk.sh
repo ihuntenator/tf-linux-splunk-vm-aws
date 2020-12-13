@@ -2,10 +2,12 @@
 
 SPLUNK_HOME="/opt/splunk"
 wget="/usr/bin/wget"
+se_version="8.1.0.1"
+se_hash="24fd52428b5a"
 
-${wget} -O splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=8.1.0.1&product=splunk&filename=splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm&wget=true'
+${wget} -O splunk-${se_version}-${se_hash}-linux-2.6-x86_64.rpm 'https://www.splunk.com/bin/splunk/DownloadActivityServlet?architecture=x86_64&platform=linux&version=${se_version}&product=splunk&filename=splunk-${se_version}-${se_hash}-linux-2.6-x86_64.rpm&wget=true'
 
-yum install -y splunk-8.1.0.1-24fd52428b5a-linux-2.6-x86_64.rpm
+yum install -y splunk-${se_version}-${se_hash}-linux-2.6-x86_64.rpm
 
 ${SPLUNK_HOME}/bin/splunk enable boot-start --accept-license --answer-yes --no-prompt -user splunk
 
